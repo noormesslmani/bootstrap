@@ -360,5 +360,8 @@ a {
     .message-area{
         width: 300px;
     }
+    .icons{
+        display: none;
+    }
     
 }
