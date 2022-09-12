@@ -4,10 +4,20 @@
     box-sizing: border-box;
     font-family: 'montserrat';
 }
-.preview{
-    height: 70px;
-    padding: 10px;
-    box-sizing: border-box;
+.hero-top{
+    display: flex;
+    justify-content: space-between;
+    padding:10px 30px;
+    color: grey;
+}
+.download{
+    height: 30px;
+    width:100px;
+    padding: 5px;
+    border: none;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+    cursor: pointer;
 }
 .top-nav{
     display: flex;
