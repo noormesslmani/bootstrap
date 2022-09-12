@@ -87,6 +87,17 @@ span{
     justify-content: space-between;
     list-style: none;
 }
+.menu{
+    color:white;
+    background-color: #1abc9c;
+    padding:5px;
+    margin-left:100px;
+    width:100px;
+    height:60px;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: none;
+}
 .list-elem{
     color:white;
     font-size: 16px;
@@ -183,6 +194,7 @@ span{
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 20px;
+    color: white;
 }
 .info-details{
     margin:20px;
@@ -216,9 +228,10 @@ span{
 .contact-info{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
-.info-details{
+.input-details{
     border-top: none;
     border-left: none;
     border-right: none;
@@ -230,6 +243,7 @@ span{
     display: flex;
     flex-direction: column;
     padding: 20px;
+    align-items: center;
 }
 .message-area{
     border-top: none;
@@ -307,4 +321,44 @@ a {
     color: #dc392d;
 }
 
-
+@media only screen and (max-width: 800px) {
+    .list{
+        display: none;
+    }
+    .menu{
+        display:block;
+    }
+    .top-nav{
+        padding: 10px;
+    }
+    .avatar{
+        width:70%;
+        height:70%;
+    }
+    .start-header{
+        font-size: 20px;
+    }
+    .hero-main{
+        padding: 20px;
+    }
+    .about{
+        padding:20px;
+    }
+    .info{
+        flex-direction: column;
+    }
+    .info-details{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .contact-header{
+        font-size: 20px ;
+    }
+    .input-details{
+        width: 300px;
+    }
+    .message-area{
+        width: 300px;
+    }
+    
+}
