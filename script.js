@@ -37,7 +37,8 @@ sendButton.onclick=()=>{console.log('Hello')}
 
 function validEmail(inputInfo){
     //let valid=''
-    let valid=/^([a-zA-Z0-9._~-]{3,})+@([a-zA-Z0-9-]{3,})+((?:\.[a-zA-Z0-9-]+){2,})*$/
+    //let valid=/^([a-zA-Z0-9._~-]{3,})+@([a-zA-Z0-9-]{3,})+((?:\.[a-zA-Z0-9-]+){2,})*$/
+    let valid =/^([a-z0-9]{3,})+[@]+([a-z]{2,})+[.]+([a-z]{2,})*$/
     return (valid.test(email.value))
     //return (false)
 }
