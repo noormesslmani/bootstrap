@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 <body>
+  
     <div class="hero-container">
         <div class="hero-top">
           <p>Overview Page</p>
@@ -86,12 +87,13 @@
         <div><hr class="hr-contact"></div>
       </div>
       <div class="contact-info">
-        <input type="text"  name="name" class="info-details" placeholder="Full name">
-        <input type="email"  name="email" class="info-details" placeholder="Email address">
-        <input type="number"  name="nb" class="info-details" placeholder="Phone number">
-        <div class="message">
-          <textarea class="message-area" placeholder="Message"> </textarea>
-          <button class="send-btn">Send</button>
+        <p id="error-msg"></p>
+        <input type="text" id="name" name="name" class="info-details" placeholder="Full name">
+        <input type="email" id="email"  name="email" class="info-details" placeholder="Email address">
+        <input type="text"  id="number" name="nb" class="info-details" placeholder="Phone number">
+        <div class="message" >
+          <textarea class="message-area" placeholder="Message" id="message"> </textarea>
+          <button class="send-btn" id="send-btn">Send</button>
         </div>
       </div>
     </div>
@@ -120,6 +122,7 @@
     <div class="copy-right">
       <p>Copyright © Your Website 2022</p>
     </div>
+    <script src="script.js" type="text/javascript"></script>
 
 </body>
 </html>
