@@ -4,7 +4,20 @@ const number = document.getElementById('number')
 const message = document.getElementById('message')
 const sendButton = document.getElementById('send-btn')
 const errorMsg= document.getElementById('error-msg')
+const tablet= document.getElementById('tablet')
+const mobile= document.getElementById('mobile')
+const body= document.getElementById('body')
 const inputInfo=[fullName, email, number,message]
+
+tablet.onclick= function (){
+    document.body.style.paddingLeft='200px'
+    document.body.style.paddingRight='200px'
+}
+
+mobile.onclick= function (){
+    document.body.style.paddingLeft='400px'
+    document.body.style.paddingRight='400px'
+}
 
 console.log('Hello')
 sendButton.onclick=()=>{console.log('Hello')}
