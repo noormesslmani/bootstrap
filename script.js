@@ -7,7 +7,7 @@ const errorMsg= document.getElementById('error-msg')
 const tablet= document.getElementById('tablet')
 const mobile= document.getElementById('mobile')
 const body= document.getElementById('body')
-const inputInfo=[fullName, email, number,message]
+var inputInfo=[fullName, email, number,message]
 
 tablet.onclick= function (){
     document.body.style.paddingLeft='200px'
@@ -19,12 +19,19 @@ mobile.onclick= function (){
     document.body.style.paddingRight='400px'
 }
 
-console.log('Hello')
-sendButton.onclick=()=>{console.log('Hello')}
 
- sendButton.onclick= function validate(inputInfo){
+sendButton.onclick= function validate(inputInfo){
+    console.log('Hello')
+
     if (validEmail(inputInfo) && validName(inputInfo) && validNum(inputInfo) && validMsg(inputInfo)){
         errorMsg.textContent=''
+        let url
+        url='http://localhost/bootstrap/addcontact.php/'
+        fetch(url,{
+            method: 'POST',
+            body: new URLSearchParams({"fullname":fullName.value, "email":email.value, "phonenumber":number.value, "messages": message.value }),
+        })
+        window.location.reload()
     }
     else{
         errorMsg.textContent='The following are invalid:'
@@ -33,27 +40,32 @@ sendButton.onclick=()=>{console.log('Hello')}
         if(! validNum(inputInfo)){errorMsg.textContent+=' number '}
         if(! validMsg(inputInfo)){errorMsg.textContent+=' message '}
     }
-}
+}   
+
+/*.then(response => response.json())
+.then(data => 
+    {
+        //check if gender result is null
+        if (data.palind){
+            result.textContent+= 'This word is a palindrome'
+        }
+        else{
+            result.textContent+= 'This word is not a palindrome'
+        }      
+    })*/
+
 
 function validEmail(inputInfo){
-    //let valid=''
-    //let valid=/^([a-zA-Z0-9._~-]{3,})+@([a-zA-Z0-9-]{3,})+((?:\.[a-zA-Z0-9-]+){2,})*$/
     let valid =/^([a-z0-9]{3,})+[@]+([a-z]{2,})+[.]+([a-z]{2,})*$/
     return (valid.test(email.value))
-    //return (false)
 }
 function validName(inputInfo){
     return(fullName.value.trim().length>5)
 }
 function validNum(inputInfo){
-    if (number.value.substring(0,3)=="+961"){
-        if(number.value.substring(4)==3){
-            return(number.value.length==11)
-        }
-        else{
-            return(number.value.length==12)
-        }
-    }
+    let valid1= /^[+9613]+([0-9]{6})*$/
+    let valid2= /^[+961]+([0-9]{8})*$/
+    return (valid1.test(number.value) || valid2.test(number.value) )
 }
 function validMsg(inputInfo){
     return (message.value.length>=100)
