@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 include("connectioncontact.php");
 
 $fullname= $_POST["fullname"];
