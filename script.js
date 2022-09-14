@@ -8,7 +8,6 @@ const tablet= document.getElementById('tablet')
 const mobile= document.getElementById('mobile')
 const desktop= document.getElementById('desktop')
 const body= document.getElementById('body')
-const showMessages= document.getElementById('show-messages')
 var inputInfo=[fullName, email, number,message]
 
 
@@ -76,17 +75,7 @@ function validMsg(inputInfo){
     return (message.value.length>=100)
 }
 
-//display all messages in databases on window load event
-window.onload = async function displayMsg(){
-    let url
-    url='http://localhost/bootstrap/getmessages.php/'
-    const response = await fetch (url)
-    const data = await response.json()
-    for (let i=0;i<data.length;i++){ //loop over the data
-        let para = document.createElement("p") //create a new p to display a message
-        para.setAttribute('class','all-messages')
-        para.innerText = data[i].messages;
-        showMessages.appendChild(para);
-    }
-}
+
+
+
 
