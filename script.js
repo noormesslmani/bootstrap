@@ -7,6 +7,7 @@ const errorMsg= document.getElementById('error-msg')
 const tablet= document.getElementById('tablet')
 const mobile= document.getElementById('mobile')
 const body= document.getElementById('body')
+const showMessages= document.getElementById('show-messages')
 var inputInfo=[fullName, email, number,message]
 
 tablet.onclick= function (){
@@ -69,4 +70,20 @@ function validNum(inputInfo){
 }
 function validMsg(inputInfo){
     return (message.value.length>=100)
+}
+
+window.onload= ()=>{
+    let url
+    url='http://localhost/bootstrap/getmessages.php/'
+    fetch(url,{
+        method: 'POST',
+    }).then(response => response.json())
+    .then(data =>{
+        for (let i=0;i<data.length;i++){
+            let para = document.createElement("p");
+            para.innerText = data[i].messages;
+            showMessages.appendChild(para);
+        }
+    })
+
 }
