@@ -6,6 +6,7 @@ const sendButton = document.getElementById('send-btn')
 const errorMsg= document.getElementById('error-msg')
 const tablet= document.getElementById('tablet')
 const mobile= document.getElementById('mobile')
+const desktop= document.getElementById('desktop')
 const body= document.getElementById('body')
 const showMessages= document.getElementById('show-messages')
 var inputInfo=[fullName, email, number,message]
@@ -18,6 +19,10 @@ tablet.onclick= function (){
 mobile.onclick= function (){
     document.body.style.paddingLeft='400px'
     document.body.style.paddingRight='400px'
+}
+desktop.onclick= function (){
+    document.body.style.paddingLeft='0px'
+    document.body.style.paddingRight='0px'
 }
 
 
@@ -43,19 +48,6 @@ sendButton.onclick= function validate(inputInfo){
     }
 }   
 
-/*.then(response => response.json())
-.then(data => 
-    {
-        //check if gender result is null
-        if (data.palind){
-            result.textContent+= 'This word is a palindrome'
-        }
-        else{
-            result.textContent+= 'This word is not a palindrome'
-        }      
-    })*/
-
-
 function validEmail(inputInfo){
     let valid =/^([a-z0-9]{3,})+[@]+([a-z]{2,})+[.]+([a-z]{2,})*$/
     return (valid.test(email.value))
@@ -80,7 +72,8 @@ window.onload= ()=>{
     }).then(response => response.json())
     .then(data =>{
         for (let i=0;i<data.length;i++){
-            let para = document.createElement("p");
+            let para = document.createElement("p")
+            para.setAttribute('class','all-messages')
             para.innerText = data[i].messages;
             showMessages.appendChild(para);
         }

@@ -265,6 +265,8 @@ span{
     border: none;
 }
 
+
+/*footer*/
 .footer{
     color: white;
     display: flex;
@@ -319,6 +321,30 @@ a {
 }
 #error-msg{
     color: #dc392d;
+}
+.msg-section{
+    display: flex;
+    flex-direction: column;
+    padding-top:50px;
+    align-items: center;
+    background-color:#1abc9c;
+}
+.msg-title{
+   color: white;
+   font-size: 50px;
+   font-weight: bold;
+   margin:10px;
+}
+.show-messages{
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: white;
+}
+.all-messages{
+    margin:20px;
+    width: 300px;
 }
 
 @media only screen and (max-width: 800px) {
