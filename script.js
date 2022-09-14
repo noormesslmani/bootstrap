@@ -64,19 +64,16 @@ function validMsg(inputInfo){
     return (message.value.length>=100)
 }
 
-window.onload= ()=>{
+
+window.onload = async function displayMsg(){
     let url
     url='http://localhost/bootstrap/getmessages.php/'
-    fetch(url,{
-        method: 'POST',
-    }).then(response => response.json())
-    .then(data =>{
-        for (let i=0;i<data.length;i++){
-            let para = document.createElement("p")
-            para.setAttribute('class','all-messages')
-            para.innerText = data[i].messages;
-            showMessages.appendChild(para);
-        }
-    })
-
+    const response = await fetch (url)
+    const data = await response.json()
+    for (let i=0;i<data.length;i++){
+        let para = document.createElement("p")
+        para.setAttribute('class','all-messages')
+        para.innerText = data[i].messages;
+        showMessages.appendChild(para);
+    }
 }
